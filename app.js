@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function initDatabase() {
         showLoader(true);
         try {
-            const response = await fetch('results.json');
+            const response = await fetch('results.json?t=' + Date.now(), { cache: 'no-store' });
             if (response.ok) {
                 const data = await response.json();
                 studentDatabase = data.students || [];
