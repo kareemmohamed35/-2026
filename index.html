@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتيجة الثانوية العامة 2026 - البوابة الرسمية فائقة الدقة</title>
+    <meta name="description" content="البوابة الرسمية والسريعة للاستعلام عن نتيجة الثانوية العامة 2026 بالاسم أو برقم الجلوس بدقة متناهية 100% مع طباعة كارت النتيجة والمجموع والدرجات التفصيلية.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800;900&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CDNs for Image Download and Confetti -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="dark-theme">
+    <div class="bg-gradient-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="container nav-content">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>بوابة الثانوية العامة 2026</span>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-btn" id="btnLeaderboardToggle">
+                    <i class="fas fa-trophy"></i>
+                    <span>لوحة الأوائل</span>
+                </button>
+                <button class="theme-toggle-btn" id="themeToggleBtn" title="تغيير المظهر (داكن / فاتح)">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top Announcement Banner -->
+    <div class="announcement-ticker" id="announcementTicker">
+        <div class="container ticker-content">
+            <i class="fas fa-bell pulse-bell"></i>
+            <span id="tickerText">تنبيه هام: ننتظر الإعلان الرسمي واعتماد نتيجة الثانوية العامة 2026. بمجرد الاعتماد ستتاح جميع النتائج والدرجات فوراً هنا.</span>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="app-header">
+        <div class="container">
+            <div class="header-badge" id="statusHeaderBadge">
+                <span class="pulse-dot warning-dot"></span>
+                <span id="headerBadgeText">في انتظار الاعتماد الرسمي لنتائج 2026</span>
+            </div>
+            <h1 class="main-title">بوابة الاستعلام عن <span class="gradient-text">نتيجة الثانوية العامة</span></h1>
+            <p class="subtitle">استعلم عن نتيجتك بسهولة وسرعة بالاسم أو برقم الجلوس مع استخراج الدرجات التفصيلية وطباعة كارت النتيجة المعتمد</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content container">
+        
+        <!-- Search Card -->
+        <section class="search-card-container">
+            <div class="search-tabs">
+                <button class="tab-btn active" id="tabName" data-mode="name">
+                    <i class="fas fa-search-location"></i>
+                    <span>البحث باسم الطالب (الذكي)</span>
+                </button>
+                <button class="tab-btn" id="tabSeating" data-mode="seating">
+                    <i class="fas fa-id-card"></i>
+                    <span>البحث برقم الجلوس</span>
+                </button>
+            </div>
+
+            <div class="search-box-wrapper">
+                <div class="search-input-group">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="اكتب اسم الطالب بالكامل أو أي أجزاء منه..." autocomplete="off" dir="rtl">
+                    <button class="clear-btn" id="btnClearSearch" title="مسح">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button class="search-submit-btn" id="btnSearch">
+                        <span>بحث</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+
+                <!-- Live Suggestions Dropdown -->
+                <div class="suggestions-dropdown hidden" id="suggestionsBox">
+                    <div class="suggestions-header">
+                        <span>النتائج المطابقة (<strong id="matchCount">0</strong>)</span>
+                        <small>اختر اسمك لعرض النتيجة الكاملة والدرجات التفصيلية</small>
+                    </div>
+                    <ul class="suggestions-list" id="suggestionsList">
+                        <!-- Filled dynamically -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="search-hint">
+                <i class="fas fa-shield-halved"></i>
+                <span id="searchHintText">ميزة البحث الفائق: اكتب اسم الطالب (ثلاثي أو رباعي) ليتم مطابقة وقراءة البيانات بدقة متناهية 100%.</span>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div class="loader-wrapper hidden" id="loader">
+            <div class="spinner"></div>
+            <p>جاري مطابقة وتدقيق النتيجة واستخراج البيان المعتمد...</p>
+        </div>
+
+        <!-- Result View Section (المظهر المذهل الفاخر لنتائج الطلاب) -->
+        <section class="result-section hidden" id="resultSection">
+            <!-- Congratulatory Banner -->
+            <div class="congratulations-banner" id="congratulationsBanner">
+                <div class="congrat-icon" id="congratIcon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="congrat-text">
+                    <h2 id="congratTitle">ألف مبروك النجاح والتفوق! 🎉</h2>
+                    <p id="congratMessage">مبارك لك ولأسرتك الكريمة هذا الإنجاز الرائع والنتيجة المشرفة.</p>
+                </div>
+            </div>
+
+            <!-- Downloadable / Printable Result Dashboard Card -->
+            <div class="result-card-exportable" id="resultCard">
+                <div class="card-watermark">2026</div>
+
+                <div class="card-header">
+                    <div class="ministry-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <h3>جمهورية مصر العربية</h3>
+                            <small>نتيجة امتحان شهادة اتمام الدراسة الثانوية العامة 2026</small>
+                        </div>
+                    </div>
+                    <div class="header-right-meta">
+                        <div class="status-badge" id="studentStatusBadge">
+                            <i class="fas fa-check-circle"></i>
+                            <span id="studentStatusText">ناجح</span>
+                        </div>
+                        <div class="honors-rank-pill" id="honorsRankPill">
+                            <i class="fas fa-medal"></i>
+                            <span id="honorsRankText">ممتاز مع مرتبة الشرف</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="student-name-block">
+                    <small>اسم الطالب / الطالبة المعني بالاستعلام</small>
+                    <h2 id="cardStudentName">اسم الطالب</h2>
+                    <div class="barcode-verification">
+                        <span class="barcode-bars">||||| ||| ||||||| |||| ||||| ||||||</span>
+                        <small>كود التحقق الرقمي المعتمد: <strong id="verificationHash">THN-2026-X89</strong></small>
+                    </div>
+                </div>
+
+                <div class="score-display-wrapper">
+                    <div class="percentage-circle">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="bg" cx="50" cy="50" r="42"></circle>
+                            <circle class="meter" id="percentageMeter" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264"></circle>
+                        </svg>
+                        <div class="percentage-text">
+                            <span id="cardPercentage">0%</span>
+                            <small>النسبة المئوية</small>
+                        </div>
+                    </div>
+
+                    <div class="score-summary-box">
+                        <div class="summary-item main-score">
+                            <span class="label">المجموع الكلي المكتسب</span>
+                            <span class="value"><strong id="cardTotalScore">0</strong> / <span id="cardMaxScore">410</span></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">رقم الجلوس الرسمي</span>
+                            <span class="value" id="cardSeatingNo">000000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <i class="fas fa-school"></i>
+                        <div>
+                            <small>المدرسة المقيد بها</small>
+                            <strong id="cardSchool">المدرسة الرسمية</strong>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-building-flag"></i>
+                        <div>
+                            <small>الإدارة التعليمية التابع لها</small>
+                            <strong id="cardAdmin">الإدارة التعليمية</strong>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-location-dot"></i>
+                        <div>
+                            <small>المحافظة</small>
+                            <strong id="cardGovernorate">المحافظة</strong>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-book-bookmark"></i>
+                        <div>
+                            <small>الشعبة الدراسية</small>
+                            <strong id="cardSection">عام</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Grades Breakdown (Dynamic Grid with Progress Bars) -->
+                <div class="subject-grades-container hidden" id="subjectGradesContainer">
+                    <h4 class="subjects-title"><i class="fas fa-award"></i> بيان درجات المواد التفصيلية</h4>
+                    <div class="subject-grades-grid" id="subjectGradesGrid">
+                        <!-- Filled dynamically if subjects are present -->
+                    </div>
+                </div>
+
+                <div class="card-footer-info">
+                    <span>تاريخ الاعتماد الرسمي: يوليو 2026</span>
+                    <span>معتمد من وزارة التربية والتعليم والتعليم الفني</span>
+                </div>
+            </div>
+
+            <!-- Result Actions -->
+            <div class="actions-wrapper">
+                <button class="action-btn download-btn" id="btnDownloadImage">
+                    <i class="fas fa-file-arrow-down"></i>
+                    <span>تحميل كارت النتيجة كصورة (PNG)</span>
+                </button>
+                <button class="action-btn print-btn" id="btnPrintCertificate">
+                    <i class="fas fa-print"></i>
+                    <span>طباعة الشهادة الرسمية</span>
+                </button>
+                <button class="action-btn share-btn" id="btnShareWhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>مشاركة عبر واتساب</span>
+                </button>
+                <button class="action-btn reset-btn" id="btnReset">
+                    <i class="fas fa-rotate-right"></i>
+                    <span>بحث عن نتيجة أخرى</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Invalid / Non-Existent Search Notice Modal Popup (تنبيه البحث الخاطئ) -->
+        <div class="modal-overlay hidden" id="invalidSearchModal">
+            <div class="notice-modal-card invalid-card">
+                <div class="notice-icon-wrapper invalid-icon">
+                    <i class="fas fa-circle-xmark"></i>
+                </div>
+                <h3>البيانات المدخلة غير مدونة بالقوائم ⚠️</h3>
+                <p id="invalidModalText">رقم الجلوس أو الاسم الذي قمت بإدخاله غير مدون بقوائم نتيجة الثانوية العامة 2026. يرجى التأكد من كتابة الاسم أو رقم الجلوس بشكل صحيح وإعادة المحاولة.</p>
+                <div class="notice-footer">
+                    <button class="notice-confirm-btn invalid-btn" id="btnCloseInvalidModal">حسناً، سأتحقق من البيانات وأعيد البحث</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Approval Modal Dialog (تنبيه ما قبل الاعتماد الرسمي) -->
+        <div class="modal-overlay hidden" id="pendingApprovalModal">
+            <div class="notice-modal-card">
+                <div class="notice-icon-wrapper">
+                    <i class="fas fa-clock-rotate-left"></i>
+                </div>
+                <h3>لم يتم اعتماد النتيجة رسمياً حتى الآن ⏳</h3>
+                <p>تنبيه: نتيجة الثانوية العامة 2026 قيد الاعتماد والتجميع الرسمي حالياً. بمجرد اعتمادها ورفع البيانات ستظهر نتيجتك فوراً هنا بالدرجات التفصيلية والمجموع الكلي.</p>
+                <div class="notice-footer">
+                    <button class="notice-confirm-btn" id="btnCloseNoticeModal">حسناً، سأنتظر الاعتماد الرسمي</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Students Leaderboard Modal/Section -->
+        <section class="modal-overlay hidden" id="leaderboardModal">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <i class="fas fa-trophy gold-icon"></i>
+                        <h3>لوحة شرف أوائل الثانوية العامة 2026</h3>
+                    </div>
+                    <button class="modal-close" id="btnCloseLeaderboard"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="leaderboard-list" id="leaderboardList">
+                        <!-- Filled dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p>جميع الحقوق محفوظة © 2026 - بوابة استعلام نتيجة الثانوية العامة</p>
+            <small>تصميم وتطوير عالي الأداء جاهز للنشر الفوري على منصة Vercel</small>
+            <p class="created-by">Created by Kik</p>
+        </div>
+    </footer>
+
+    <!-- App JS -->
+    <script src="app.js"></script>
+</body>
+</html>
