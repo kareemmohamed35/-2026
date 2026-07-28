@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Thanaweya Amma 2026 - High Precision Production System (CSS)
+   Thanaweya Amma 2026 - Ultra Mobile Responsive Production Design System
    ========================================================================== */
 
 :root {
@@ -125,8 +125,9 @@ body {
 
 /* Top Navigation Bar */
 .top-nav {
-    background: rgba(15, 23, 42, 0.75);
+    background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     position: sticky;
     top: 0;
@@ -134,7 +135,7 @@ body {
 }
 
 body.light-theme .top-nav {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.9);
     border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 
@@ -142,39 +143,43 @@ body.light-theme .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 65px;
+    min-height: 65px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-size: 1.1rem;
     font-weight: 800;
     color: var(--text-main);
+    white-space: nowrap;
 }
 
 .nav-brand i {
     color: var(--gold);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    white-space: nowrap;
 }
 
 .nav-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
+    gap: 6px;
+    padding: 8px 14px;
     background: rgba(99, 102, 241, 0.15);
     border: 1px solid rgba(99, 102, 241, 0.3);
     color: var(--primary);
     border-radius: var(--radius-sm);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
@@ -186,8 +191,8 @@ body.light-theme .top-nav {
 }
 
 .theme-toggle-btn {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -195,9 +200,10 @@ body.light-theme .top-nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 .theme-toggle-btn:hover {
@@ -214,15 +220,17 @@ body.light-theme .top-nav {
 .ticker-content {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 0.92rem;
+    gap: 10px;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #fef08a;
+    line-height: 1.4;
 }
 
 .pulse-bell {
     color: var(--gold);
     font-size: 1.1rem;
+    flex-shrink: 0;
     animation: bellRing 2s infinite ease-in-out;
 }
 
@@ -236,7 +244,7 @@ body.light-theme .top-nav {
 /* Header */
 .app-header {
     text-align: center;
-    padding: 40px 0 25px;
+    padding: 35px 0 20px;
 }
 
 .header-badge {
@@ -247,9 +255,9 @@ body.light-theme .top-nav {
     border: 1px solid rgba(245, 158, 11, 0.3);
     padding: 6px 16px;
     border-radius: 30px;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     color: #fef08a;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .pulse-dot {
@@ -259,6 +267,7 @@ body.light-theme .top-nav {
     border-radius: 50%;
     box-shadow: 0 0 10px var(--emerald);
     animation: pulse 1.5s infinite;
+    flex-shrink: 0;
 }
 
 .pulse-dot.warning-dot {
@@ -273,10 +282,11 @@ body.light-theme .top-nav {
 }
 
 .main-title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 900;
     margin-bottom: 10px;
     letter-spacing: -0.5px;
+    line-height: 1.35;
 }
 
 .gradient-text {
@@ -287,9 +297,10 @@ body.light-theme .top-nav {
 
 .subtitle {
     color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: 1rem;
     max-width: 650px;
     margin: 0 auto;
+    line-height: 1.5;
 }
 
 /* Main Content */
@@ -305,9 +316,9 @@ body.light-theme .top-nav {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border-card);
     border-radius: var(--radius-lg);
-    padding: 30px;
+    padding: 24px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     position: relative;
     z-index: 10;
 }
@@ -315,10 +326,10 @@ body.light-theme .top-nav {
 /* Search Tabs */
 .search-tabs {
     display: flex;
-    gap: 12px;
-    margin-bottom: 25px;
-    background: rgba(15, 23, 42, 0.4);
-    padding: 6px;
+    gap: 8px;
+    margin-bottom: 20px;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 5px;
     border-radius: var(--radius-md);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -328,20 +339,22 @@ body.light-theme .top-nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 14px 18px;
+    gap: 8px;
+    padding: 12px 14px;
     background: transparent;
     border: none;
     color: var(--text-muted);
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 700;
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: var(--transition);
+    text-align: center;
 }
 
 .tab-btn i {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 
 .tab-btn:hover {
@@ -367,20 +380,20 @@ body.light-theme .top-nav {
 
 .search-icon {
     position: absolute;
-    right: 20px;
+    right: 18px;
     color: var(--text-muted);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     pointer-events: none;
 }
 
 #searchInput {
     width: 100%;
-    padding: 18px 55px 18px 130px;
+    padding: 16px 48px 16px 115px;
     background: var(--input-bg);
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-md);
     color: var(--text-main);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     outline: none;
     transition: var(--transition);
@@ -393,11 +406,11 @@ body.light-theme .top-nav {
 
 .clear-btn {
     position: absolute;
-    left: 110px;
+    left: 96px;
     background: transparent;
     border: none;
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     padding: 6px;
     opacity: 0;
@@ -416,20 +429,21 @@ body.light-theme .top-nav {
 
 .search-submit-btn {
     position: absolute;
-    left: 8px;
+    left: 6px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 22px;
+    gap: 6px;
+    padding: 10px 18px;
     background: linear-gradient(135deg, var(--emerald) 0%, #059669 100%);
     color: #ffffff;
     border: none;
     border-radius: var(--radius-sm);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
     box-shadow: 0 4px 14px var(--emerald-glow);
+    white-space: nowrap;
 }
 
 .search-submit-btn:hover {
@@ -463,7 +477,7 @@ body.light-theme .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
+    padding: 12px 18px;
     background: rgba(30, 41, 59, 0.7);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     font-size: 0.85rem;
@@ -480,7 +494,7 @@ body.light-theme .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 20px;
+    padding: 12px 18px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     cursor: pointer;
     transition: var(--transition);
@@ -497,13 +511,13 @@ body.light-theme .top-nav {
 }
 
 .student-info-meta .student-name-matched {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text-main);
 }
 
 .student-info-meta .student-sub {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
 }
 
@@ -511,31 +525,34 @@ body.light-theme .top-nav {
     background: rgba(255, 255, 255, 0.08);
     padding: 4px 10px;
     border-radius: 6px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--gold);
+    white-space: nowrap;
 }
 
 .search-hint {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 18px;
+    margin-top: 16px;
     color: var(--text-sub);
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     background: rgba(255, 255, 255, 0.03);
-    padding: 10px 16px;
+    padding: 10px 14px;
     border-radius: var(--radius-sm);
+    line-height: 1.4;
 }
 
 .search-hint i {
     color: var(--gold);
+    flex-shrink: 0;
 }
 
 /* Loader */
 .loader-wrapper {
     text-align: center;
-    padding: 40px 0;
+    padding: 30px 0;
 }
 
 .loader-wrapper.hidden {
@@ -543,13 +560,13 @@ body.light-theme .top-nav {
 }
 
 .spinner {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border: 4px solid rgba(99, 102, 241, 0.2);
     border-top: 4px solid var(--primary);
     border-radius: 50%;
     animation: spin 1s infinite linear;
-    margin: 0 auto 16px;
+    margin: 0 auto 14px;
 }
 
 @keyframes spin {
@@ -575,31 +592,31 @@ body.light-theme .top-nav {
 .congratulations-banner {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
     border: 1px solid rgba(251, 191, 36, 0.4);
     border-radius: var(--radius-lg);
-    padding: 24px 30px;
+    padding: 20px 24px;
     margin-bottom: 25px;
     box-shadow: 0 10px 30px var(--gold-glow);
 }
 
 .congrat-icon {
-    width: 60px;
-    height: 60px;
+    width: 54px;
+    height: 54px;
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     color: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     flex-shrink: 0;
     box-shadow: 0 0 20px var(--gold-glow);
 }
 
 .congrat-text h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: #fef08a;
     margin-bottom: 4px;
@@ -607,7 +624,7 @@ body.light-theme .top-nav {
 
 .congrat-text p {
     color: var(--text-sub);
-    font-size: 0.98rem;
+    font-size: 0.92rem;
 }
 
 /* Exportable Result Card Dashboard */
@@ -615,7 +632,7 @@ body.light-theme .top-nav {
     background: var(--card-bg-export);
     border: 2px solid rgba(99, 102, 241, 0.3);
     border-radius: var(--radius-lg);
-    padding: 40px;
+    padding: 30px;
     position: relative;
     overflow: hidden;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
@@ -637,50 +654,50 @@ body.light-theme .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .header-right-meta {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 8px;
+    gap: 6px;
 }
 
 .ministry-logo {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
 }
 
 .ministry-logo i {
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: var(--gold);
 }
 
 .ministry-logo h3 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: var(--text-main);
 }
 
 .ministry-logo small {
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
 }
 
 .status-badge {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
+    gap: 6px;
+    padding: 5px 14px;
     background: rgba(16, 185, 129, 0.2);
     border: 1px solid var(--emerald);
     color: #6ee7b7;
     border-radius: 30px;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     font-weight: 800;
 }
 
@@ -694,40 +711,40 @@ body.light-theme .top-nav {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 5px 14px;
+    padding: 4px 12px;
     background: rgba(251, 191, 36, 0.15);
     border: 1px solid var(--gold);
     color: #fef08a;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 700;
 }
 
 .student-name-block {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .student-name-block small {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     display: block;
     margin-bottom: 4px;
 }
 
 .student-name-block h2 {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     font-weight: 900;
     color: var(--text-main);
     line-height: 1.3;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .barcode-verification {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     color: var(--text-muted);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
 }
 
 .barcode-bars {
@@ -740,20 +757,20 @@ body.light-theme .top-nav {
 /* Score Display Wrapper */
 .score-display-wrapper {
     display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 30px;
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
     align-items: center;
     background: rgba(30, 41, 59, 0.4);
     border-radius: var(--radius-md);
-    padding: 25px;
+    padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .percentage-circle {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 135px;
+    height: 135px;
     margin: 0 auto;
 }
 
@@ -787,7 +804,7 @@ body.light-theme .top-nav {
 }
 
 .percentage-text span {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 900;
     color: var(--text-main);
     display: block;
@@ -795,21 +812,21 @@ body.light-theme .top-nav {
 }
 
 .percentage-text small {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--text-muted);
 }
 
 .score-summary-box {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .summary-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 18px;
+    padding: 10px 16px;
     background: rgba(15, 23, 42, 0.5);
     border-radius: var(--radius-sm);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -822,61 +839,61 @@ body.light-theme .top-nav {
 
 .summary-item .label {
     color: var(--text-sub);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .summary-item .value {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: var(--text-main);
 }
 
 .summary-item.main-score .value strong {
     color: var(--gold);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 /* Details Grid */
 .details-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 25px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .detail-item {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     background: rgba(30, 41, 59, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 16px;
+    padding: 14px;
     border-radius: var(--radius-sm);
 }
 
 .detail-item i {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--primary);
-    width: 30px;
+    width: 24px;
     text-align: center;
 }
 
 .detail-item small {
     display: block;
     color: var(--text-muted);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
 }
 
 .detail-item strong {
     color: var(--text-main);
-    font-size: 0.98rem;
+    font-size: 0.92rem;
     font-weight: 700;
 }
 
 /* Subject Grades Breakdown */
 .subject-grades-container {
-    margin-top: 25px;
-    padding-top: 25px;
+    margin-top: 20px;
+    padding-top: 20px;
     border-top: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
@@ -885,10 +902,10 @@ body.light-theme .top-nav {
 }
 
 .subjects-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--gold);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -896,15 +913,15 @@ body.light-theme .top-nav {
 
 .subject-grades-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
 }
 
 .subject-card {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding: 14px 16px;
+    padding: 12px 14px;
     background: rgba(15, 23, 42, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: var(--radius-sm);
@@ -917,20 +934,20 @@ body.light-theme .top-nav {
 }
 
 .subject-card .sub-name {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     color: var(--text-sub);
     font-weight: 600;
 }
 
 .subject-card .sub-score {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--emerald);
 }
 
 .subject-bar-bg {
     width: 100%;
-    height: 6px;
+    height: 5px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 4px;
     overflow: hidden;
@@ -945,7 +962,7 @@ body.light-theme .top-nav {
 .card-footer-info {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--text-muted);
     padding-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -956,20 +973,20 @@ body.light-theme .top-nav {
 .actions-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 12px;
 }
 
 .action-btn {
     flex: 1;
-    min-width: 200px;
+    min-width: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 16px 22px;
+    gap: 8px;
+    padding: 14px 18px;
     border: none;
     border-radius: var(--radius-md);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
@@ -1008,11 +1025,12 @@ body.light-theme .top-nav {
     height: 100vh;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 2000;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 16px;
 }
 
 .modal-overlay.hidden {
@@ -1024,8 +1042,8 @@ body.light-theme .top-nav {
     border: 2px solid rgba(245, 158, 11, 0.4);
     border-radius: var(--radius-lg);
     width: 100%;
-    max-width: 520px;
-    padding: 35px 30px;
+    max-width: 480px;
+    padding: 30px 24px;
     text-align: center;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
     animation: popupScale 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
@@ -1041,8 +1059,8 @@ body.light-theme .top-nav {
 }
 
 .notice-icon-wrapper {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(217, 119, 6, 0.2) 100%);
     border: 2px solid var(--gold);
     color: var(--gold);
@@ -1050,8 +1068,8 @@ body.light-theme .top-nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.2rem;
-    margin: 0 auto 20px;
+    font-size: 2rem;
+    margin: 0 auto 16px;
     box-shadow: 0 0 25px var(--gold-glow);
 }
 
@@ -1063,10 +1081,10 @@ body.light-theme .top-nav {
 }
 
 .notice-modal-card h3 {
-    font-size: 1.45rem;
+    font-size: 1.3rem;
     font-weight: 900;
     color: #fef08a;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .notice-modal-card.invalid-card h3 {
@@ -1075,19 +1093,19 @@ body.light-theme .top-nav {
 
 .notice-modal-card p {
     color: var(--text-sub);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
 }
 
 .notice-confirm-btn {
     width: 100%;
-    padding: 14px 20px;
+    padding: 12px 18px;
     background: linear-gradient(135deg, var(--gold) 0%, #d97706 100%);
     color: #0f172a;
     border: none;
     border-radius: var(--radius-sm);
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 800;
     cursor: pointer;
     transition: var(--transition);
@@ -1105,7 +1123,7 @@ body.light-theme .top-nav {
     border: 1px solid var(--border-card);
     border-radius: var(--radius-lg);
     width: 100%;
-    max-width: 700px;
+    max-width: 650px;
     max-height: 85vh;
     display: flex;
     flex-direction: column;
@@ -1117,21 +1135,21 @@ body.light-theme .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 25px;
+    padding: 16px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .modal-title {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 1.2rem;
+    gap: 10px;
+    font-size: 1.1rem;
     font-weight: 800;
 }
 
 .gold-icon {
     color: var(--gold);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 .modal-close {
@@ -1143,29 +1161,29 @@ body.light-theme .top-nav {
 }
 
 .modal-body {
-    padding: 20px;
+    padding: 16px;
     overflow-y: auto;
 }
 
 .leaderboard-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .leaderboard-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 18px;
+    padding: 12px 14px;
     background: rgba(15, 23, 42, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: var(--radius-sm);
 }
 
 .rank-badge {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     display: flex;
@@ -1173,6 +1191,7 @@ body.light-theme .top-nav {
     justify-content: center;
     font-weight: 800;
     color: var(--text-main);
+    font-size: 0.9rem;
 }
 
 .rank-badge.top-1 { background: var(--gold); color: #000; }
@@ -1182,16 +1201,16 @@ body.light-theme .top-nav {
 /* Footer */
 .app-footer {
     text-align: center;
-    padding: 30px 0;
+    padding: 25px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     margin-top: auto;
 }
 
 .created-by {
-    margin-top: 10px;
-    font-size: 1rem;
+    margin-top: 8px;
+    font-size: 0.95rem;
     font-weight: 800;
     color: var(--gold);
     letter-spacing: 0.8px;
@@ -1225,19 +1244,200 @@ body.light-theme .top-nav {
     }
 }
 
-/* Mobile Responsive */
+/* ==========================================================================
+   Ultra Mobile Specific Responsiveness (Phones & Small Devices <= 768px & <= 480px)
+   ========================================================================== */
+
 @media (max-width: 768px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    .nav-content {
+        min-height: 58px;
+    }
+
+    .nav-brand {
+        font-size: 0.95rem;
+    }
+
+    .nav-brand i {
+        font-size: 1.15rem;
+    }
+
+    .nav-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .nav-btn span {
+        font-size: 0.8rem;
+    }
+
     .main-title {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
     .search-card-container {
-        padding: 20px;
+        padding: 16px;
+        border-radius: 16px;
     }
+
+    .search-tabs {
+        flex-direction: row;
+        gap: 6px;
+        padding: 4px;
+    }
+
+    .tab-btn {
+        padding: 10px 8px;
+        font-size: 0.82rem;
+        gap: 6px;
+    }
+
+    .tab-btn i {
+        font-size: 0.9rem;
+    }
+
+    #searchInput {
+        padding: 14px 42px 14px 95px;
+        font-size: 0.92rem;
+    }
+
+    .search-icon {
+        right: 14px;
+        font-size: 1rem;
+    }
+
+    .clear-btn {
+        left: 82px;
+        font-size: 0.9rem;
+    }
+
+    .search-submit-btn {
+        left: 5px;
+        padding: 8px 14px;
+        font-size: 0.88rem;
+    }
+
     .score-display-wrapper {
         grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px;
         text-align: center;
     }
+
+    .percentage-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .percentage-text span {
+        font-size: 1.4rem;
+    }
+
     .details-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .detail-item {
+        padding: 12px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .header-right-meta {
+        align-items: flex-start;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .student-name-block h2 {
+        font-size: 1.5rem;
+    }
+
+    .result-card-exportable {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .congratulations-banner {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .congrat-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+    }
+
+    .congrat-text h2 {
+        font-size: 1.15rem;
+    }
+
+    .congrat-text p {
+        font-size: 0.85rem;
+    }
+
+    .action-btn {
+        min-width: 100%;
+        padding: 14px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-brand span {
+        font-size: 0.88rem;
+    }
+
+    .main-title {
+        font-size: 1.45rem;
+    }
+
+    .search-tabs {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .tab-btn {
+        font-size: 0.78rem;
+        padding: 9px 4px;
+        flex: 1;
+    }
+
+    #searchInput {
+        padding: 14px 38px 14px 85px;
+        font-size: 0.88rem;
+    }
+
+    .search-submit-btn {
+        padding: 7px 10px;
+        font-size: 0.82rem;
+    }
+
+    .search-submit-btn span {
+        display: inline-block;
+    }
+
+    .clear-btn {
+        left: 72px;
+    }
+
+    .card-footer-info {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
     }
 }
